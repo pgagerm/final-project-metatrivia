@@ -22,10 +22,10 @@ if (Meteor.isClient) {
     Tasks.insert({
       question: question,
       answers: [
-        {text    : answer1, isAnswer : true},
-        {text    : answer2, isAnswer : true},
-        {text    : answer3, isAnswer : true},
-        {text    : answer4, isAnswer : true}
+        {text    : answer1, isAnswer : false},
+        {text    : answer2, isAnswer : false},
+        {text    : answer3, isAnswer : false},
+        {text    : answer4, isAnswer : false}
         ],
       createdAt: new Date() // current time
     });

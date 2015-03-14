@@ -4,23 +4,57 @@
 
 <body>
   <div class="container">
-    <header>
-      <h1>Question submission form</h1>
 
       <form class="submitted-question">
-        <input type="text" name="question" placeholder="Type your question here..." />
-        <input type="text" name="answer1" placeholder="First possible answer..."/>
-        <input type="text" name="answer2" placeholder="Second possible answer..."/>
-        <input type="text" name="answer3" placeholder="Third possible answer..."/>
-        <input type="text" name="answer4" placeholder="Fourth possible answer..."/>
-        <input type="submit" id="submit"/>
+        <div class="row">
+          <div class="col-lg-2"></div>
+          <div class="col-lg-8">
+          <h1>Question submission form</h1>
+            <div class="form-group form-group-lg">
+              <input type="text" class="form-control" name="question" placeholder="Type your question here..."/>
+            </div>
+            <div class="input-group answer-padding">
+              <span class="input-group-addon">
+                <input type="radio" name="isAnswer" id="isAnswer1">
+              </span>
+            <input type="text" class="form-control" name="answer1" placeholder="First possible answer..."/>
+            </div><!-- /input-group -->
+            <div class="input-group answer-padding">
+              <span class="input-group-addon">
+                <input type="radio" name="isAnswer" id="isAnswer2">
+              </span>
+            <input type="text" class="form-control" name="answer2" placeholder="Second possible answer..."/>
+            </div><!-- /input-group -->
+            <div class="input-group answer-padding">
+              <span class="input-group-addon">
+                <input type="radio" name="isAnswer" id="isAnswer3">
+              </span>
+            <input type="text" class="form-control" name="answer3" placeholder="First possible answer..."/>
+            </div><!-- /input-group -->
+            <div class="input-group submit-padding">
+              <span class="input-group-addon">
+                <input type="radio" name="isAnswer" id="isAnswer4">
+              </span>
+            <input type="text" class="form-control" name="answer4" placeholder="First possible answer..."/>
+            </div><!-- /input-group -->
+          <input type="submit" class="btn btn-primary btn-block btn-lg" id="submit"/>
+          </div><!-- /.col-lg-6 -->
+          <div class="col-lg-2"></div>
+        </div>
       </form>
-    </header>
-
-    <ul>
-      {{#each tasks}}
-        <li>{{question}}</li>
-      {{/each}}
-    </ul>
+      <!-- display all questions -->
+      <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+          <ul>
+            {{#each tasks}}
+              <li>{{question}}</li>
+            {{/each}}
+          </ul>
+        </div>
+        <div class="col-lg-2"></div>
+      </div>
   </div>
 </body>
+
+
