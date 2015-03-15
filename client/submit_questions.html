@@ -5,6 +5,8 @@
 <body>
   <div class="container">
 
+
+    {{#if currentUser}}
       <form class="submitted-question">
         <div class="row">
           <div class="col-lg-2"></div>
@@ -51,6 +53,8 @@
           <div class="col-lg-2"></div>
         </div>
       </form>
+    {{/if}}
+          
       <!-- display all questions -->
       <div class="row">
         <div class="col-lg-2"></div>

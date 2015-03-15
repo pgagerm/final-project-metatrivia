@@ -9,3 +9,6 @@ autopublish
 insecure
 msavin:mongol
 twbs:bootstrap
+accounts-ui
+accounts-password
+accounts-facebook

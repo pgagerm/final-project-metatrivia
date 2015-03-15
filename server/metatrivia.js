@@ -1,14 +1,16 @@
-Tasks = new Mongo.Collection("tasks");
+Questions = new Mongo.Collection("questons");
 
 if (Meteor.isClient) {
   // This code only runs on the client
 
+  //  Returns a list of the quesitons in the database
   Template.body.helpers({
-    tasks: function () {
-      return Tasks.find({});
+    questions: function () {
+      return Questions.find({});
     }
   });
 
+  // Helper to submit the questions into the database
   Template.body.events({
     "submit .submitted-question": function (event) {
       // This function is called when the question submission form is submitted
@@ -19,10 +21,12 @@ if (Meteor.isClient) {
       var answer3 = event.target.answer3.value;
       var answer4 = event.target.answer4.value;
 
+      // Indicating which answer is correct
       var isAnswer1 = false;
       var isAnswer2 = false;
       var isAnswer3 = false;
       var isAnswer4 = false;
+
       if ($('#isAnswer1').is(':checked')) {
         isAnswer1 = true;
       }
@@ -39,6 +43,7 @@ if (Meteor.isClient) {
         isAnswer4 = true;
       }
 
+      //insert user submitted questions into the database
       Tasks.insert({
         question: question,
         answers: [
@@ -47,7 +52,9 @@ if (Meteor.isClient) {
           {text: answer3, isAnswer : isAnswer3},
           {text: answer4, isAnswer : isAnswer4}
           ],
-        createdAt: new Date() // current time
+        createdAt: new Date(), // current time
+        owner: Meteor.userId(),           // _id of logged in user
+        username: Meteor.user().username  // username of logged in user
       });
 
       // Clear form
@@ -56,6 +63,10 @@ if (Meteor.isClient) {
       // Prevent default form submit
       return false;
     }
+  });
+
+  Accounts.ui.config({
+    passwordSignupFields: "USERNAME_ONLY"
   });
 }
 
